@@ -6,17 +6,17 @@
     <div>
         <h1 class="logo"><a href="{% url 'index' %}">Django Auth Example</a></h1>
         {% if user.is_authenticated %}
-            <p>你已登录，欢迎你：<a href="#">{{ user.username }}</a></p>
+            <p>你已登录，欢迎你：<a href="#">{{ user.username }}</a> {{ user.email }}</p>
             <button class="btn btn-default"><a href="{% url 'logout' %}">注销登录</a>
             </button>
-            <button class="btn btn-default"><a href="?next={{ request.path }}">修改密码</a>
+            <button class="btn btn-default"><a href="{% url 'edit_pass' %}">修改密码</a>
             </button>
         {% else %}
             <p>你还没有登录，请
                 <button class="btn btn-default"><a href="{% url 'login' %}">登录</a>
                 </button>
                 或者
-                <button class="btn btn-default"><a href="?next={{ request.path }}">注册</a>
+                <button class="btn btn-default"><a href="{% url 'register' %}">注册</a>
                 </button>
             </p>
         {% endif %}

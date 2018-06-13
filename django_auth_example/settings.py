@@ -87,6 +87,7 @@ AUTH_USER_MODEL = 'users.User'
 AUTHENTICATION_BACKENDS = (
     'users.views.CustomBackend',
 )
+LOGIN_URL = '/users/login/'
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators

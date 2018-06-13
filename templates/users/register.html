@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}
-    修改密码
+    注册
 {% endblock %}
 {% block body %}
 <div class="container">
@@ -9,17 +9,23 @@
         <div class="row">
             <div class="col-md-4">
                 {{ error }}
-                <p>你已登录，欢迎你：<a href="#">{{ user.username }}</a> {{ user.email }}</p>
                 <form action="" method="POST">
                     {% csrf_token %}
-                    <input type="hidden" name="email" value="{{ user.email }}">
                     <div class="form-group">
-                        <label for="user">新密码: </label>
+                        <label for="user">用户名: </label>
+                        <input type="text" name="user" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="user">邮 箱: </label>
+                        <input type="text" name="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="user">密码: </label>
                         <input type="password" name="pwd" class="form-control">
                     </div>
                     <input type="submit" class="btn btn-info" value="提交">
                 </form>
-                <div class="warning" >{% for k,v in modify_form.errors.items %}{{ v }}{% endfor %}</div>
+                <div class="warning" >{% for k,v in reg_form.errors.items %}{{ v }}{% endfor %}{{ msg }}</div>
                 </div>
         </div>
 
