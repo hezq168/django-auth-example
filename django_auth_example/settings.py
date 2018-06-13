@@ -82,6 +82,11 @@ DATABASES = {
     }
 }
 
+# 自定议用户验证模块
+AUTH_USER_MODEL = 'users.User'
+AUTHENTICATION_BACKENDS = (
+    'users.views.CustomBackend',
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
